@@ -43,9 +43,18 @@ int main(){
 
 	glViewport(0,0,800,600);
 
+	//循环等待命令响应
 	while(!glfwWindowShouldClose(window))
 	{
-		processInput(window);
+		processInput(window);    //输入按键退出
+
+		//渲染命令
+		glClearColor(0.2f,0.3f,0.3f,1.0f);//设置每次屏的颜色（R,G，B，不透明度）
+		glClear(GL_COLOR_BUFFER_BIT); //清除缓存的颜色数据，每次循环开始清屏上次的颜色
+
+
+
+		//检查新的输入和准备渲染缓存
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
